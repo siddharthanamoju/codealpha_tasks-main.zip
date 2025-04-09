@@ -1,0 +1,17 @@
+class StockPortfolio:
+    def __init__(self):
+        self.portfolio = {}
+    
+    def add_stock(self, symbol, shares, price):
+        self.portfolio[symbol] = {'shares': shares, 'price': price}
+    
+    def total_value(self):
+        return sum(stock['shares'] * stock['price'] for stock in self.portfolio.values())
+
+# Example Usage
+portfolio = StockPortfolio()
+portfolio.add_stock("AAPL", 10, 175.0)
+portfolio.add_stock("TSLA", 5, 210.0)
+portfolio.add_stock("GOOGL", 8, 2800.0)
+
+print("Total Portfolio Value:", portfolio.total_value())
